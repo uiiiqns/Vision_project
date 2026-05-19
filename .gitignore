@@ -1,0 +1,5 @@
+data/raw/*.tif
+data/processed/*.jpg
+data/processed/*.png
+results/*.jpg
+results/*.png
