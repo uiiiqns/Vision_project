@@ -7,3 +7,5 @@ checkpoints/*.pth
 data/processed/*.npy
 data/processed/*.jpg
 data/processed/*.png
+data/raw/*.tif
+data/processed/*_fire.png
