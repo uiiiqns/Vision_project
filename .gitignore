@@ -3,3 +3,7 @@ data/processed/*.jpg
 data/processed/*.png
 results/*.jpg
 results/*.png
+checkpoints/*.pth
+data/processed/*.npy
+data/processed/*.jpg
+data/processed/*.png
