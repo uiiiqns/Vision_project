@@ -5,7 +5,7 @@ import os
 ee.Initialize(project='wildfire-project-496714')
 
 # LA 산불 지역 ROI (팰리세이즈 산불 중심)
-roi = ee.Geometry.Rectangle([-118.6, 34.0, -118.0, 34.4])
+roi = ee.Geometry.Rectangle([-118.65, 34.02, -118.35, 34.15])
 
 def get_sentinel2(start_date, end_date, cloud_pct=20):
     return (ee.ImageCollection('COPERNICUS/S2_SR_HARMONIZED')
@@ -29,7 +29,7 @@ print(f"산불 중 이미지 수: {during_fire.size().getInfo()}")
 print(f"산불 후 이미지 수: {post_fire.size().getInfo()}")
 # 각 시기별 중앙값 합성 이미지 생성
 pre_composite = pre_fire.median().clip(roi)
-during_composite = during_fire.median().clip(roi)
+during_composite = during_fire.sort('CLOUDY_PIXEL_PERCENTAGE').first().clip(roi)
 post_composite = post_fire.median().clip(roi)
 
 # 다운로드
